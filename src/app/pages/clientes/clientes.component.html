@@ -1,0 +1,38 @@
+<main>
+  <h1 class="display-6 my-3">Clientes</h1>
+  <hr>
+  <a type="button" class="btn btn btn-success mx-1" routerLink="/clientes/cadastrar"><i
+      class="fa-solid fa-plus me-2"></i>Adicionar</a>
+
+  <table class="table table-striped table-bordered mt-5">
+    <thead>
+      <tr>
+        <th scope="col" class="col-sm-1 text-center">CPF</th>
+        <th scope="col" class="col-sm-3">Nome</th>
+        <th scope="col" class="col-sm-1">Telefone</th>
+        <th scope="col" class="col-sm-3">Rua</th>
+        <th scope="col" class="col-sm-0">Numero</th>
+        <th scope="col" class="col-sm-1">CEP</th>
+        <th scope="col" class="col-sm-1">Rendimento Mensal</th>
+        <th scope="col" class="col-sm-1">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <th scope="row" class="text-center">{{cliente.cpf}}</th>
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.telefone}}</td>
+        <td>{{cliente.endereco.rua}}</td>
+        <td>{{cliente.endereco.numero}}</td>
+        <td>{{cliente.endereco.cep}}</td>
+        <td>{{cliente.rendimentoMensal | currency: 'BRL'}}</td>
+        <td class="text-center">
+          <a type="button" class="btn btn btn-warning mx-1" routerLink="/clientes/editar/{{cliente.cpf}}"><i
+              class="fa-solid fa-pen-to-square"></i></a>
+          <a type="button" class="btn btn btn-danger mx-1" routerLink="/clientes/excluir/{{cliente.cpf}}"><i
+              class="fa-sharp fa-solid fa-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

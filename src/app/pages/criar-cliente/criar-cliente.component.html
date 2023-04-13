@@ -1,0 +1,57 @@
+<section>
+  <h1 class="display-6 my-3">Cadastrar cliente</h1>
+  <hr>
+  <div class="container">
+    <form [formGroup]="clienteForm" (ngSubmit)="cadastrar()">
+      <div class="row">
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input id="cpf" type="text" class="form-control" formControlName="cpf" [dropSpecialCharacters]="false"
+              placeholder="000.000.000-00" mask="CPF_CNPJ" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input id="nome" type="text" class="form-control" formControlName="nome" />
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" name="telefone" id="telefone" class="form-control" formControlName='telefone'
+              mask="(00) 0000-0000||(00) 00000-0000" />
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="number" class="form-label">Rendimento mensal</label>
+            <input id="number" type="text" class="form-control" formControlName="rendimentoMensal" min="0" />
+          </div>
+        </div>
+        <fieldset class="campos__endereco" formGroupName="endereco">
+          <div class="col-8">
+            <div class="mb-3">
+              <label for="rua" class="form-label">Rua</label>
+              <input id="rua" type="text" class="form-control" formControlName="rua" />
+            </div>
+          </div>
+          <div class="col-1">
+            <div class="mb-3">
+              <label for="numero" class="form-label">Número</label>
+              <input id="numero" type="number" class="form-control" formControlName="numero" min="0" />
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="mb-3">
+              <label for="cep" class="form-label">CEP</label>
+              <input id="cep" type="text" class="form-control" formControlName="cep" mask="00000-000" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="clienteForm.invalid">Cadastrar</button>
+    </form>
+  </div>
+</section>
