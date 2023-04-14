@@ -31,6 +31,9 @@ export class ExcluirClienteComponent {
       this.clientesService.buscarClientePorCpf(String(cpf)).subscribe((result) => {
         this.cliente = result;
       })
+      setTimeout(function () {
+        window.location.reload();
+      }, 2000);
     }
 
     excluirCliente() {
@@ -44,5 +47,7 @@ export class ExcluirClienteComponent {
     cancelar() {
       this.router.navigate(['/clientes']);
     }
+
+
 
 }

@@ -7,6 +7,7 @@ import { EditarClienteComponent } from './pages/editar-cliente/editar-cliente.co
 import { CriarClienteComponent } from './pages/criar-cliente/criar-cliente.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'clientes/cadastrar', component: CriarClienteComponent},
